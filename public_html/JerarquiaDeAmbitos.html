@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Jerarquia de ambitos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
+        <script>
+           var app = angular.module('MiApp', []);
+            app.controller('miCtrl', function($scope) {
+                $scope.population=7000;
+                $scope.countries=[
+                    {name:'France', population:63.1},
+                    {name:'United Kingdom', population:61.8}
+                ];
+            });
+        </script>
+    </head>
+    <body ng-app="MiApp">
+        <ul ng-controller="miCtrl">
+            <li ng-repeat="country in countries ">
+                {{country.name}} tiene una poblacion de {{country.population}}
+            </li>
+            <hr>
+            La poblacion mundial es de: {{population}} millones. 
+        </ul>
+    </body>
+</html>
