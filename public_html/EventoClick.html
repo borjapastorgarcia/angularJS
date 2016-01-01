@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+       <title>Eventos de Click</title>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
+       <script>
+           function MyCtrl($scope) {
+               $scope.texto = true;
+               $scope.toggle = function() {
+                   $scope.texto = !$scope.texto;
+               };
+           }
+       </script>
+    </head>
+    <body ng-app>
+        <div ng-controller="MyCtrl">
+            <button ng-click="toggle()">Boton</button>
+            <p ng-show="texto">Hola Mundo!</p>
+        </div>
+    </body>
+</html>

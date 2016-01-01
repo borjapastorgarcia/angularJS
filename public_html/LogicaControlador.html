@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"></script>
+        <script>
+          $scope.remaining=function(){
+            return MAX_LEN-$scope.mensaje.length;  
+          };
+          $scope.shouldWarn=function(){
+              return $scope.remaining()<WARN_THRESHOLD;
+          };
+        </script>
+    </head>
+    <body ng-app="">
+        <div class="container" ng-controller="TextAreaConLimite">
+            <div class="row">
+                <textarea ng-model="mensaje">{{mensaje}}</textarea>
+            </div>
+            <div class="row">
+                <button ng-disabled="hasValidLength()" ng-click="enviar()">Enviar</button>
+                <button ng-click="limpiar()">Limpìar</button>
+            </div>
+        </div>
+        <span ng-class="{'text-warning':shouldWarn()}">Remaining: {{remaining()}}</span>
+    </body>
+</html>
