@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script><script>
+            var app = angular.module('myApp', []);
+            app.controller('myCtrl', function($scope) {
+                $scope.names = ["Emil", "Tobias", "Linus"];
+            });
+        </script>
+    </head>
+    <body>
+    <p>This example shows how to fill a dropdown list using the ng-options directive.</p>
+        <div ng-app="myApp" ng-controller="myCtrl">
+            <select ng-model="selectedName" ng-options="x for x in names"></select>
+         <p>Your selection is: {{selectedName}}</p>
+        </div>
+       
+    </body>
+</html>

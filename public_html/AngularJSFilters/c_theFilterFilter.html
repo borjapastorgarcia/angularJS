@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.-->
+
+<!--The filter filter can only be used on arrays, and it returns an array containing only the matching items.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script>
+        angular.module('myApp', []).controller('namesCtrl', function($scope) {
+            $scope.names = [
+                'Jani',
+                'Carl',
+                'Margareth',
+                'Hege',
+                'Joe',
+                'Gustav',
+                'Birgit',
+                'Mary',
+                'Kai'
+            ];
+        });
+        </script>
+    </head>
+    <body>
+        <p>The list will only consists of names matching the filter.</p>
+        <div ng-app="myApp" ng-controller="namesCtrl">
+        <p>Type a letter in the input field:</p>
+        <p><input type="text" ng-model="test"></p>
+        <ul>
+          <li ng-repeat="x in names | filter:test">
+            {{ x }}
+          </li>
+        </ul>
+        </div>
+    </body>
+</html>
